@@ -3,12 +3,14 @@
 
 # Read Azure Data Lake Storage into Akka Streams
 
-This replays historical data-at-rest into an
+Replay historical data-at-rest into an
 existing code base that had been designed for streaming.
 
 ## Current Storage Sources
 1.  GZip files of UTF8 `\n` delimited strings
 2.  Other storage implementations TBD
+
+Uses [adslapi]
 
 ## USAGE
 
@@ -58,3 +60,5 @@ sbt sonatypeReleaseAll
 ```
 
 ---
+
+[adslapi]:https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-java-sdk#read-a-file
