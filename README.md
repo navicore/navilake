@@ -10,7 +10,7 @@ existing code base that had been designed for streaming.
 1.  GZip files of UTF8 `\n` delimited strings
 2.  Other storage implementations TBD
 
-Uses [adslapi]
+Uses the [adslapi].
 
 ## USAGE
 
