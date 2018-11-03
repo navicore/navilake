@@ -4,10 +4,10 @@ import java.io.{BufferedReader, InputStreamReader}
 import java.util.zip.GZIPInputStream
 
 import com.microsoft.azure.datalake.store.ADLFileInputStream
-import onextent.akka.naviblob.azure.storage.{BlobConfig, Blobber}
+import onextent.akka.naviblob.azure.storage.{LakeConfig, Laker}
 
-class Reader(path: String)(implicit cfg: BlobConfig)
-    extends Blobber {
+class Reader(path: String)(implicit cfg: LakeConfig)
+    extends Laker {
 
   //val blob: CloudBlockBlob = container.getBlockBlobReference(path)
 

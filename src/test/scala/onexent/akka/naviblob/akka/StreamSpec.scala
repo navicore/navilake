@@ -7,7 +7,7 @@ import akka.stream.{ActorMaterializer, ActorMaterializerSettings}
 import akka.util.Timeout
 import onextent.akka.naviblob.akka.NaviLake
 import onextent.akka.naviblob.azure.avro.Connector
-import onextent.akka.naviblob.azure.storage.BlobConfig
+import onextent.akka.naviblob.azure.storage.LakeConfig
 import org.scalatest._
 
 import scala.concurrent.duration._

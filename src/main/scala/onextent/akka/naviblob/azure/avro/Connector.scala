@@ -3,20 +3,20 @@ package onextent.akka.naviblob.azure.avro
 import akka.actor.{Actor, Props}
 import com.typesafe.scalalogging.LazyLogging
 import onextent.akka.naviblob.akka.{NoMore, Pull}
-import onextent.akka.naviblob.azure.storage.{BlobConfig, BlobPaths}
+import onextent.akka.naviblob.azure.storage.{LakeConfig, LakePaths}
 
 object Connector extends LazyLogging {
 
   val name: String = "AvroConnector"
 
-  def props[T](implicit config: BlobConfig) = Props(new Connector())
+  def props[T](implicit config: LakeConfig) = Props(new Connector())
 }
 
-class Connector(implicit config: BlobConfig)
+class Connector(implicit config: LakeConfig)
     extends Actor
     with LazyLogging {
 
-  val pathsIterator: Iterator[String] = new BlobPaths().toList.iterator
+  val pathsIterator: Iterator[String] = new LakePaths().toList.iterator
 
   val firstPath: String = pathsIterator.next()
   logger.debug(s"reading from first path $firstPath")

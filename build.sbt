@@ -13,7 +13,7 @@ javaOptions in test ++= Seq(
 
 parallelExecution in test := false
 
-version := "1.0.2"
+version := "0.9.0"
 
 val scala212 = "2.12.7"
 val scala211 = "2.11.12"
@@ -77,8 +77,6 @@ publishTo := Some(
 libraryDependencies ++=
   Seq(
 
-    "ch.qos.logback" % "logback-classic" % "1.1.7",
-    "com.typesafe" % "config" % "1.3.3",
     "com.typesafe.scala-logging" %% "scala-logging" % "3.9.0",
 
     "com.microsoft.azure" % "azure-data-lake-store-sdk" % "2.3.2",
