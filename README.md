@@ -21,7 +21,7 @@ update your `build.sbt` dependencies with:
 libraryDependencies += "tech.navicore" %% "navilake" % "0.9.0"
 ```
 
-This example reads gzip data from Azure blobs.
+This example reads gzip data from Azure Data Lake.
 
 Create a config, a connector, and a source via the example below.
 
