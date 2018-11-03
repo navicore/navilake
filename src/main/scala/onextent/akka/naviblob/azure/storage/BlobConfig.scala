@@ -1,6 +1,4 @@
 package onextent.akka.naviblob.azure.storage
 
-case class BlobConfig(accountName: String,
-                      accountKey: String,
-                      containerName: String,
-                      path: Option[String])
+case class BlobConfig(accountFQDN: String, clientId: String, authTokenEndpoint: String, clientKey: String, path: Option[String])
+

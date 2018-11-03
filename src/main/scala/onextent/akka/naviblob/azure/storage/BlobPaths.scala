@@ -10,16 +10,16 @@ class BlobPaths(implicit cfg: BlobConfig)
 
   override def iterator: Iterator[String] = {
 
-    val l = cfg.path match {
+    cfg.path match {
       case Some(p) =>
         logger.debug(s"listing blobs at path $p")
-        val i = container.listBlobs(p, true)
-        i.iterator()
-      case _ => container.listBlobs().iterator()
+        val list = blobClient.enumerateDirectory(p, 2000).asScala
+        list.map(_.name).toIterator
+      case _ =>
+        logger.debug("listing blobs at path /")
+        val list = blobClient.enumerateDirectory("/", 2000).asScala
+        list.map(_.name).toIterator
     }
-
-    // wtf, there is no api to get the string that the rest of the api calls require :|
-    l.asScala.map(x => x.getUri.getPath.replaceFirst(s"/${x.getContainer.getName}/", ""))
 
   }
 

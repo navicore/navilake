@@ -23,10 +23,10 @@ val akkaVersion = "2.5.17"
 
 publishMavenStyle := true
 
-homepage := Some(url("https://github.com/navicore/naviblob"))
+homepage := Some(url("https://github.com/navicore/navilake"))
 
-scmInfo := Some(ScmInfo(url("https://github.com/navicore/naviblob"),
-                            "git@github.com:navicore/naviblob.git"))
+scmInfo := Some(ScmInfo(url("https://github.com/navicore/navilake"),
+                            "git@github.com:navicore/navilake.git"))
 
 developers := List(Developer("navicore",
                              "Ed Sweeney",
@@ -81,9 +81,7 @@ libraryDependencies ++=
     "com.typesafe" % "config" % "1.3.3",
     "com.typesafe.scala-logging" %% "scala-logging" % "3.9.0",
 
-    "com.microsoft.azure" % "azure-storage" % "8.0.0",
-
-    "com.sksamuel.avro4s" %% "avro4s-core" % "2.0.2",
+    "com.microsoft.azure" % "azure-data-lake-store-sdk" % "2.3.2",
 
     "com.typesafe.akka" %% "akka-actor" % akkaVersion,
     "com.typesafe.akka" %% "akka-stream" % akkaVersion,
