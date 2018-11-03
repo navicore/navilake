@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/navicore/navilake.svg?branch=master)](https://travis-ci.org/navicore/navilake)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1901174b92304a8d98ce2d8b64f4d9dc)](https://www.codacy.com/app/navicore/navilake?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=navicore/navilake&amp;utm_campaign=Badge_Grade)
+
 # UNDER CONSTRUCTION
 
 # UNDER CONSTRUCTION
