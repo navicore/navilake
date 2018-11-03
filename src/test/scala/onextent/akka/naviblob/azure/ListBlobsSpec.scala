@@ -13,7 +13,7 @@ class ListBlobsSpec extends FlatSpec with Matchers with LazyLogging {
   val authEP: String = sys.env.getOrElse("DATALAKE_AUTH_ENDPOINT", "unknown")
   val path: String = sys.env.getOrElse("DATALAKE_PATH", "/")
 
-  "lister" should "list blobs" in {
+  ignore should "list blobs" in {
 
     implicit val cfg: LakeConfig = LakeConfig(accountFQDN, clientId, authEP, clientKey, Some(path))
     implicit val azureBlobber: Laker = new Laker()
@@ -27,7 +27,7 @@ class ListBlobsSpec extends FlatSpec with Matchers with LazyLogging {
 
   }
 
-  "reader" should "read blob" in {
+  ignore should "read blob" in {
 
     implicit val cfg: LakeConfig = LakeConfig(accountFQDN, clientId, authEP, clientKey, Some(path))
     implicit val azureBlobber: Laker = new Laker()
@@ -48,7 +48,7 @@ class ListBlobsSpec extends FlatSpec with Matchers with LazyLogging {
 
   }
 
-  "reader" should "read all" in {
+  ignore should "read all" in {
 
     implicit val cfg: LakeConfig = LakeConfig(accountFQDN, clientId, authEP, clientKey, Some(path))
     implicit val azureBlobber: Laker = new Laker()
