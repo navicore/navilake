@@ -6,7 +6,7 @@ import java.util.zip.GZIPInputStream
 import com.microsoft.azure.datalake.store.ADLFileInputStream
 import onextent.akka.naviblob.azure.storage.{LakeConfig, Laker}
 
-class Reader(path: String)(implicit cfg: LakeConfig)
+class GZipReader(path: String)(implicit cfg: LakeConfig)
     extends Laker {
 
   //val blob: CloudBlockBlob = container.getBlockBlobReference(path)

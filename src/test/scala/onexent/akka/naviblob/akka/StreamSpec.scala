@@ -6,8 +6,8 @@ import akka.stream.scaladsl.Sink
 import akka.stream.{ActorMaterializer, ActorMaterializerSettings}
 import akka.util.Timeout
 import onextent.akka.naviblob.akka.NaviLake
-import onextent.akka.naviblob.azure.avro.Connector
-import onextent.akka.naviblob.azure.storage.LakeConfig
+import onextent.akka.naviblob.azure.avro.GzipConnector
+import onextent.akka.naviblob.azure.storage.{LakeConfig, Laker}
 import org.scalatest._
 
 import scala.concurrent.duration._
@@ -15,7 +15,6 @@ import scala.concurrent.{Await, Future}
 
 class StreamSpec extends FlatSpec with Matchers {
 
-  /*
   implicit val actorSystem: ActorSystem = ActorSystem("spec")
   implicit val materializer: ActorMaterializer = ActorMaterializer(
     ActorMaterializerSettings(actorSystem))
@@ -29,30 +28,31 @@ class StreamSpec extends FlatSpec with Matchers {
     FiniteDuration(d.length, d.unit)
   }
 
-  val storageAccount: String = sys.env.getOrElse("BLOB_ACCOUNT", "unknown")
-  val storageKey: String = sys.env.getOrElse("BLOB_KEY", "unknown")
-  val storagePath: Option[String] = sys.env.get("BLOB_PATH")
-  val containerName: String = sys.env.getOrElse("BLOB_CONTAINER", "unknown")
+  val accountFQDN: String = sys.env.getOrElse("DATALAKE_URL", "unknown")
+  val clientId: String = sys.env.getOrElse("DATALAKE_CLIENT_ID", "unknown")
+  val clientKey: String = sys.env.getOrElse("DATALAKE_CLIENT_SECRET", "unknown")
+  val authEP: String = sys.env.getOrElse("DATALAKE_AUTH_ENDPOINT", "unknown")
+  val path: String = sys.env.getOrElse("DATALAKE_PATH", "/")
 
   var count = 0
-  val consumer: Sink[EhRecord, Future[Done]] = Sink.foreach(m => {
+  val consumer: Sink[String, Future[Done]] = Sink.foreach(m => {
     count += 1
-    println(s"$count sunk ${m.Body}")
+    println(s"$count sunk $m")
   })
 
   ignore should "read blobs" in {
 
-    implicit val cfg: BlobConfig =
-      BlobConfig(storageAccount, storageKey, containerName, storagePath)
+    implicit val cfg: LakeConfig =
+      LakeConfig(accountFQDN, clientId, authEP, clientKey, Some(path))
+    implicit val azureBlobber: Laker = new Laker()
 
-    val connector: ActorRef = actorSystem.actorOf(Connector.props[EhRecord])
+    val connector: ActorRef = actorSystem.actorOf(GzipConnector.props)
 
-    val src = NaviBlob[EhRecord](connector)
+    val src = NaviLake(connector)
     val r: Future[Done] = src.runWith(consumer)
 
     Await.result(r, 10 * 60 seconds)
 
   }
 
-   */
 }

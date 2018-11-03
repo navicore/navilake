@@ -5,14 +5,14 @@ import com.typesafe.scalalogging.LazyLogging
 import onextent.akka.naviblob.akka.{NoMore, Pull}
 import onextent.akka.naviblob.azure.storage.{LakeConfig, LakePaths}
 
-object Connector extends LazyLogging {
+object GzipConnector extends LazyLogging {
 
-  val name: String = "AvroConnector"
+  val name: String = "GZipConnector"
 
-  def props[T](implicit config: LakeConfig) = Props(new Connector())
+  def props[T](implicit config: LakeConfig) = Props(new GzipConnector())
 }
 
-class Connector(implicit config: LakeConfig)
+class GzipConnector(implicit config: LakeConfig)
     extends Actor
     with LazyLogging {
 
@@ -21,7 +21,7 @@ class Connector(implicit config: LakeConfig)
   val firstPath: String = pathsIterator.next()
   logger.debug(s"reading from first path $firstPath")
 
-  var readerIterator: Iterator[String] = new Reader(firstPath).read()
+  var readerIterator: Iterator[String] = new GZipReader(firstPath).read()
 
   override def receive: Receive = {
 
@@ -34,7 +34,7 @@ class Connector(implicit config: LakeConfig)
         if (pathsIterator.hasNext) {
           val nextPath = pathsIterator.next()
           logger.debug(s"reading from next path $nextPath")
-          readerIterator = new Reader(nextPath).read()
+          readerIterator = new GZipReader(nextPath).read()
           sender() ! readerIterator.next()
         } else {
           // all files in original path spec have been processed

@@ -1,7 +1,7 @@
 package onextent.akka.naviblob.azure
 
 import com.typesafe.scalalogging.LazyLogging
-import onextent.akka.naviblob.azure.avro.Reader
+import onextent.akka.naviblob.azure.avro.GZipReader
 import onextent.akka.naviblob.azure.storage.{LakeConfig, LakePaths, Laker}
 import org.scalatest._
 
@@ -36,7 +36,7 @@ class ListBlobsSpec extends FlatSpec with Matchers with LazyLogging {
       case Some(p) =>
         logger.info(s"reading: $p")
 
-        val r = new Reader(s"/$p")
+        val r = new GZipReader(s"/$p")
         val iter = r.read()
         val records = iter.toList
 
@@ -58,7 +58,7 @@ class ListBlobsSpec extends FlatSpec with Matchers with LazyLogging {
 
       logger.info(s"reading: $p")
 
-      val r = new Reader(s"/$p")
+      val r = new GZipReader(s"/$p")
       val iter = r.read()
       val records = iter.toList
 

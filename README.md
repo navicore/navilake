@@ -1,16 +1,14 @@
 [![Build Status](https://travis-ci.org/navicore/navilake.svg?branch=master)](https://travis-ci.org/navicore/navilake)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1901174b92304a8d98ce2d8b64f4d9dc)](https://www.codacy.com/app/navicore/navilake?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=navicore/navilake&amp;utm_campaign=Badge_Grade)
 
-# UNDER CONSTRUCTION
-
-# UNDER CONSTRUCTION
-
-# UNDER CONSTRUCTION
-
 # Read Azure Data Lake Storage into Akka Streams
 
 This replays historical data-at-rest into an
 existing code base that had been designed for streaming.
+
+## Current Storage Sources
+1.  GZip files of UTF8 `\n` delimited strings
+2.  Other storage implementations TBD
 
 ## USAGE
 
@@ -30,11 +28,10 @@ Create a config, a connector, and a source via the example below.
     ...
     ...
     ...
-    // TODO...
-    // TODO...
-    // TODO...
-    // TODO...
-    // TODO...
+    // credentials and location
+    implicit val cfg: LakeConfig = LakeConfig(ACCOUNTFQDN, CLIENTID, AUTHEP, CLIENTKEY, Some(PATH))
+    val connector: ActorRef = actorSystem.actorOf(GzipConnector.props)
+    val src = NaviLake(connector)
     ...
     ...
     ...
