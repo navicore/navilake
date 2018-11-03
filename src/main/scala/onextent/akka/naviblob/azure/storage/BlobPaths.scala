@@ -14,11 +14,11 @@ class BlobPaths(implicit cfg: BlobConfig)
       case Some(p) =>
         logger.debug(s"listing blobs at path $p")
         val list = blobClient.enumerateDirectory(p, 2000).asScala
-        list.map(_.name).toIterator
+        list.map(_.fullName).toIterator
       case _ =>
         logger.debug("listing blobs at path /")
         val list = blobClient.enumerateDirectory("/", 2000).asScala
-        list.map(_.name).toIterator
+        list.map(_.fullName).toIterator
     }
 
   }

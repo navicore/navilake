@@ -13,33 +13,34 @@ class ListBlobsSpec extends FlatSpec with Matchers with LazyLogging {
   val authEP: String = sys.env.getOrElse("DATALAKE_AUTH_ENDPOINT", "unknown")
   val path: String = sys.env.getOrElse("DATALAKE_PATH", "/")
 
-  "util" should "list blobs" in {
+  "lister" should "list blobs" in {
 
     implicit val cfg: BlobConfig = BlobConfig(accountFQDN, clientId, authEP, clientKey, Some(path))
     implicit val azureBlobber: Blobber = new Blobber()
 
     new BlobPaths().toList.headOption match {
       case Some(p) =>
-        println(p)
-        assert(p.startsWith(path.substring(1, 4)))
+        logger.info(s"listed: $p")
+        assert(p.startsWith(path.substring(0, 4)))
       case _ => assertResult(false)(true)
     }
 
   }
 
-  ignore should "read blob" in {
+  "reader" should "read blob" in {
 
     implicit val cfg: BlobConfig = BlobConfig(accountFQDN, clientId, authEP, clientKey, Some(path))
     implicit val azureBlobber: Blobber = new Blobber()
 
     new BlobPaths().toList.headOption match {
       case Some(p) =>
+        logger.info(s"reading: $p")
 
-        val r = new Reader(p)
+        val r = new Reader(s"/$p")
         val iter = r.read()
         val records = iter.toList
 
-        records.size should be(12404)
+        records.size should be(66894)
         records.slice(0, 10).foreach(println)
 
       case _ => assertResult(false)(true)
