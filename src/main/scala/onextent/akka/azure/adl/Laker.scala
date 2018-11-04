@@ -1,4 +1,4 @@
-package onextent.akka.naviblob.azure.storage
+package onextent.akka.azure.adl
 
 import com.microsoft.azure.datalake.store.ADLStoreClient
 import com.microsoft.azure.datalake.store.oauth2.ClientCredsTokenProvider

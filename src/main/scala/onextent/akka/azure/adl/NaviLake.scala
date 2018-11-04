@@ -1,4 +1,4 @@
-package onextent.akka.naviblob.akka
+package onextent.akka.azure.adl
 
 import akka.NotUsed
 import akka.actor.{ActorRef, ActorSystem}

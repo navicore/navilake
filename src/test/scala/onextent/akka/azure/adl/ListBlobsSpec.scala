@@ -1,8 +1,6 @@
-package onextent.akka.naviblob.azure
+package onextent.akka.azure.adl
 
 import com.typesafe.scalalogging.LazyLogging
-import onextent.akka.naviblob.azure.avro.GZipReader
-import onextent.akka.naviblob.azure.storage.{LakeConfig, LakePaths, Laker}
 import org.scalatest._
 
 class ListBlobsSpec extends FlatSpec with Matchers with LazyLogging {

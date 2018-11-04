@@ -1,9 +1,7 @@
-package onextent.akka.naviblob.azure.avro
+package onextent.akka.azure.adl
 
 import akka.actor.{Actor, Props}
 import com.typesafe.scalalogging.LazyLogging
-import onextent.akka.naviblob.akka.{NoMore, Pull}
-import onextent.akka.naviblob.azure.storage.{LakeConfig, LakePaths}
 
 object GzipConnector extends LazyLogging {
 

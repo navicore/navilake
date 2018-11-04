@@ -1,13 +1,10 @@
-package onexent.akka.naviblob.akka
+package onextent.akka.azure.adl
 
 import akka.Done
 import akka.actor.{ActorRef, ActorSystem}
 import akka.stream.scaladsl.Sink
 import akka.stream.{ActorMaterializer, ActorMaterializerSettings}
 import akka.util.Timeout
-import onextent.akka.naviblob.akka.NaviLake
-import onextent.akka.naviblob.azure.avro.GzipConnector
-import onextent.akka.naviblob.azure.storage.{LakeConfig, Laker}
 import org.scalatest._
 
 import scala.concurrent.duration._

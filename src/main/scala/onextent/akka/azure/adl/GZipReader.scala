@@ -1,10 +1,9 @@
-package onextent.akka.naviblob.azure.avro
+package onextent.akka.azure.adl
 
 import java.io.{BufferedReader, InputStreamReader}
 import java.util.zip.GZIPInputStream
 
 import com.microsoft.azure.datalake.store.ADLFileInputStream
-import onextent.akka.naviblob.azure.storage.{LakeConfig, Laker}
 
 class GZipReader(path: String)(implicit cfg: LakeConfig)
     extends Laker {
