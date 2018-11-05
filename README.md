@@ -18,7 +18,7 @@ update your `build.sbt` dependencies with:
 
 ```scala
 // https://mvnrepository.com/artifact/tech.navicore/navilake
-libraryDependencies += "tech.navicore" %% "navilake" % "0.9.0"
+libraryDependencies += "tech.navicore" %% "navilake" % "1.0.0"
 ```
 
 This example reads gzip data from Azure Data Lake.
