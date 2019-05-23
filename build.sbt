@@ -37,7 +37,7 @@ libraryDependencies ++=
 
     "com.typesafe.scala-logging" %% "scala-logging" % "3.9.0",
 
-    "com.microsoft.azure" % "azure-data-lake-store-sdk" % "2.3.2",
+    "com.microsoft.azure" % "azure-data-lake-store-sdk" % "2.3.4",
 
     "com.typesafe.akka" %% "akka-actor" % akkaVersion,
     "com.typesafe.akka" %% "akka-stream" % akkaVersion,
