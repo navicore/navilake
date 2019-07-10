@@ -18,7 +18,7 @@ update your `build.sbt` dependencies with:
 
 ```scala
 // https://mvnrepository.com/artifact/tech.navicore/navilake
-libraryDependencies += "tech.navicore" %% "navilake" % "1.2.0"
+libraryDependencies += "tech.navicore" %% "navilake" % "1.3.0"
 ```
 
 This example reads gzip data from Azure Data Lake.
@@ -41,22 +41,6 @@ Create a config, a connector, and a source via the example below.
     ...
     ...
     ...
-```
-
-## OPS
-
-### publish local
-
-```console
-sbt +publishLocalSigned
-```
-
-### publish to nexus staging
-
-```console
-export GPG_TTY=$(tty)
-sbt +publishSigned
-sbt sonatypeReleaseAll
 ```
 
 ---
