@@ -10,9 +10,9 @@ object Conf {
   implicit val materializer: ActorMaterializer = ActorMaterializer(
     ActorMaterializerSettings(actorSystem))
 
+  val timeout: String = sys.env.getOrElse("DATALAKE_TIMEOUT", "180 seconds")
   def requestDuration: Duration = {
-    val t = "120 seconds"
-    Duration(t)
+    Duration(timeout)
   }
   implicit def requestTimeout: Timeout = {
     val d = requestDuration
