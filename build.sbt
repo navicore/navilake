@@ -35,6 +35,8 @@ inThisBuild(List(
 libraryDependencies ++=
   Seq(
 
+    "tech.navicore" %% "navipath" % "3.0.2",
+    
     "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2",
 
     "com.microsoft.azure" % "azure-data-lake-store-sdk" % "2.3.4",
@@ -50,6 +52,7 @@ dependencyOverrides ++= Seq(
   "com.typesafe.akka" %% "akka-stream" % akkaVersion
 )
 
+mainClass in assembly := Some("onextent.akka.azure.adl.cli.Main")
 assemblyJarName in assembly := "NaviLake.jar"
 
 assemblyMergeStrategy in assembly := {
