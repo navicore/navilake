@@ -36,7 +36,7 @@ inThisBuild(List(
 libraryDependencies ++=
   Seq(
 
-    "tech.navicore" %% "navipath" % "3.1.0",
+    "tech.navicore" %% "navipath" % "4.0.1",
     
     "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2",
 
