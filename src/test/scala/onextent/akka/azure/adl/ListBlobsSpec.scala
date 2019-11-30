@@ -2,8 +2,10 @@ package onextent.akka.azure.adl
 
 import com.typesafe.scalalogging.LazyLogging
 import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class ListBlobsSpec extends FlatSpec with Matchers with LazyLogging {
+class ListBlobsSpec extends AnyFlatSpec with Matchers with LazyLogging {
 
   val accountFQDN: String = sys.env.getOrElse("DATALAKE_URL", "unknown")
   val clientId: String = sys.env.getOrElse("DATALAKE_CLIENT_ID", "unknown")
