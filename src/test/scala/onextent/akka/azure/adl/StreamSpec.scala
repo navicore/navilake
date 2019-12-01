@@ -9,8 +9,10 @@ import org.scalatest._
 
 import scala.concurrent.duration._
 import scala.concurrent.{Await, Future}
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class StreamSpec extends FlatSpec with Matchers {
+class StreamSpec extends AnyFlatSpec with Matchers {
 
   implicit val actorSystem: ActorSystem = ActorSystem("spec")
   implicit val materializer: ActorMaterializer = ActorMaterializer(
