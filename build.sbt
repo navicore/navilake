@@ -39,7 +39,7 @@ libraryDependencies ++=
 
     "tech.navicore" %% "navipath" % "4.0.2",
     
-    "com.typesafe.scala-logging" %% "scala-logging" % "3.9.3",
+    "com.typesafe.scala-logging" %% "scala-logging" % "3.9.4",
 
     "com.microsoft.azure" % "azure-data-lake-store-sdk" % "2.3.9",
 
